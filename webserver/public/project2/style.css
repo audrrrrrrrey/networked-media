@@ -1,0 +1,126 @@
+audio{
+    display: none;
+    
+}
+
+button {
+    background-color: transparent;
+    border: 2px solid rgba(211, 211, 211, 0.5);
+    color: rgba(211, 211, 211, 0.6);
+    box-shadow: 0 0 10px 5px rgba(211, 211, 211, 0.1);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 1s ease;
+    border-radius: 5px;
+    
+}
+  
+button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px 5px rgba(211, 211, 211, 0.2);
+    border-color: white;
+    color: white;
+}
+
+#toggle{
+    float: left;
+}
+
+#info{
+    float: right;
+}
+
+body {
+    /* background-color: navy; */
+    /* animation-name: anim;
+    animation-duration: 60s; 
+    /* 86400s in 24 hr */
+    /* ^change this to reflect Date later */
+    /* animation-iteration-count: infinite; */
+
+    transition: background-color 1s ease-in-out;
+    /*  ease-in-out; */
+}
+
+#ocean{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 25vh;
+    width: 100vw;
+    mix-blend-mode: multiply;
+    opacity: 30%;
+    box-shadow: 0 0 10vh 10vh rgba(60, 60, 60, 0.5);
+    transition: background-color 1s ease-in-out;
+}
+
+#ground{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 10vh;
+    width: 100vw;
+    box-shadow: 0 0 10vh 10vh rgba(5, 0, 13, 0.5);
+    background-color: rgb(85, 26, 10);
+}
+
+#groundlight{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 12vh;
+    width: 100vw;
+    mix-blend-mode: multiply;
+    opacity: 30%;
+    transition: background-color 1s ease-in-out;
+}
+
+#moonsun{
+    position: fixed;
+    top: 20vh;
+    right: 20vh;
+    height: 8vh;
+    width: 8vh;
+    background-color: white;
+    transition: scale 2s ease-in-out;
+    transform: translate(-50%, -50%);       
+    /* to center it */
+}
+
+#moonsunlight{
+    position: fixed;
+    top: 20vh;
+    right: 20vh;
+    height: 8vh;
+    width: 8vh;
+    mix-blend-mode: difference;
+    opacity: 30%;
+    box-shadow: 0 0 10vh 5vh rgba(255, 255, 255, 0.5);
+    transition: background-color 1s ease-in-out;
+    transition: scale 2s ease-in-out;
+    transform: translate(-50%, -50%);
+    /* to center it */
+}
+
+.ms:hover #moonsunlight{
+    scale: 1.2;
+}
+
+.ms:hover #moonsun{
+    scale: 1.2;
+}
+
+/* old solution, ignore */
+@keyframes anim {
+    /* change these to reflect Date later */
+    /* 12am midnight dark, 6am dawn, rosy blue, 12pm sky blue, 6pm rosy sunset*/
+    /* 0%   {background-color: rgb(2, 2, 49); }
+    25%  {background-color: rgb(255, 241, 185); }
+    50%  {background-color: rgb(117, 209, 245); }
+    75%  {background-color: rgb(255, 186, 178); }
+    100% {background-color: rgb(2, 2, 49); } */
+}
+
+
