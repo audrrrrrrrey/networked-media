@@ -1,0 +1,348 @@
+@font-face {
+  font-family: pixelated-wingdings;
+  src: url(fonts/pixelated-wingdings.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: proggy-clean;
+  src: url(fonts/proggy-clean.ttf) format("truetype");
+}
+
+body {
+  caret-color: rgb(187, 9, 223);
+  background-color: #1e2022;
+  background-image: url("dithered-image.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-blend-mode: multiply;
+  image-rendering: pixelated;
+  overflow-x: hidden;
+
+  color: rgb(207, 215, 196);
+  font-family: pixelated-wingdings;
+  font-size: 16px;
+  width: 100%;
+  margin: 0px;
+
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
+  animation: fadein 1s;
+}
+
+/* thanks https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load for this one */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  color: rgb(198, 220, 240);
+  font-size: 2.2em;
+}
+
+h2 {
+  color: rgb(158, 179, 196);
+}
+
+#globe {
+  font-size: 16px;
+}
+
+.text {
+  position: relative;
+  margin: 50px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+header {
+  display: flex;
+  margin: 0px;
+  width: 100%;
+}
+
+marquee {
+  border-bottom: 1.5px dotted silver;
+  margin: 0px;
+  padding: 10px;
+  line-height: 25px;
+  text-align: center;
+}
+
+#nav-bar {
+  padding: 30px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  white-space: wrap;
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  /* display: inline-block; */
+  border: 1x solid transparent;
+  color: rgb(187, 9, 223);
+  font-size: 1.5em;
+  padding: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  line-height: 20px;
+  text-align: center;
+  image-rendering: pixelated;
+  border-image-source: url("border.png");
+  border-image-slice: 3;
+  border-image-width: 7px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+
+  transition: box-shadow 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+
+#home-icon {
+  display: inline-block;
+  /* float: left; */
+  height: 45.5px;
+  border: 1.5px dotted silver;
+}
+
+#translate-button {
+  border: 1px solid transparent;
+  image-rendering: pixelated;
+  border-image-source: url("border.png");
+  border-image-slice: 3;
+  border-image-width: 7px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+
+  background-color: transparent;
+  float: right;
+  white-space: nowrap;
+  font-family: proggy-clean;
+  color: inherit;
+  font-size: 22px;
+  line-height: 25px;
+  text-align: center;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  transition: box-shadow 0.5s ease-in-out, text-shadow 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+#translate-button:hover,
+.nav-button:hover,
+input[type="submit"]:hover,
+#promise:hover,
+#home-icon:hover {
+  opacity: 75%;
+  cursor: pointer;
+}
+
+#translate-button:hover {
+  text-shadow: 0 0 3px white;
+}
+
+.nav-button:hover,
+input[type="submit"]:hover {
+  text-shadow: 0 0 3px rgb(187, 9, 223);
+}
+
+#translate-button:active,
+.nav-button:active,
+input[type="submit"]:active,
+#home-icon:active {
+  opacity: 60%;
+  filter: blur(1px);
+}
+
+.log-entry {
+  float: center;
+  padding: 10px;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-container {
+  display: flex;
+  float: left;
+  /* border: 1px solid white; */
+  height: 40%;
+  width: 50%;
+  overflow: hidden;
+  justify-content: center;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.description-container {
+  float: left;
+  display: flex;
+  padding: 10px;
+  position: relative;
+  height: 40%;
+  width: 40%;
+  line-height: 25px;
+  margin-left: 20px;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  margin: auto;
+  padding: 5px;
+}
+
+.input-container {
+  border: 1.5px solid silver;
+  margin: auto;
+  width: 50%;
+}
+
+.input-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  line-height: 30px;
+  border-bottom: 1.5px dotted silver;
+}
+
+.last-input-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-bottom: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+label {
+  font-size: 1.1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  height: 90px;
+  width: 60%;
+  background-color: aliceblue;
+}
+
+input[type="text"] {
+  height: 30px;
+  width: 60%;
+  background-color: aliceblue;
+}
+
+input[type="file"]::file-selector-button {
+  font-family: inherit;
+  background-color: transparent;
+  background-color: aliceblue;
+}
+
+input[type="submit"] {
+  display: flex;
+  margin: auto;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: rgb(187, 9, 223);
+  font-size: 1.5em;
+  padding: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  text-align: center;
+  line-height: 20px;
+  image-rendering: pixelated;
+  border-image-source: url("border.png");
+  border-image-slice: 3;
+  border-image-width: 7px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  cursor: pointer;
+
+  transition: box-shadow 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+
+table {
+  font-size: 1.01em;
+  border: 1.5px solid silver;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  display: table-cell;
+  border: 1.5px dotted silver;
+  font-weight: bold;
+  padding: 10px;
+}
+
+td.table-image {
+  width: 40%;
+  text-align: center;
+  padding: 0px;
+}
+
+img.table-image {
+  display: block;
+  margin: auto;
+}
+
+.landscape-container {
+  display: block;
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+  overflow: hidden;
+  margin: auto;
+}
