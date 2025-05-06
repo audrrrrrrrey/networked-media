@@ -1,0 +1,634 @@
+@font-face {
+  font-family: pixelated-wingdings;
+  src: url(fonts/pixelated-wingdings.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "proggy-clean";
+  src: url(fonts/proggy-clean.ttf) format("truetype");
+}
+
+html {
+  scrollbar-color:  rgb(158, 179, 196) rgba(0, 0, 0, 0.3);
+  scrollbar-width: thin;
+}
+
+body {
+  caret-color: rgb(187, 9, 223);
+  
+  background-color: #1e2022;
+  background-image: url("dithered-image.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-blend-mode: multiply;
+  image-rendering: pixelated;
+  overflow-x: hidden;
+
+  color: rgb(207, 215, 196);
+  font-family: "pixelated-wingdings";
+  font-size: 16px;
+  width: 100%;
+  margin: 0px;
+
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
+  animation: fadein 1s;
+}
+
+/* thanks https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load for this one */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  color: rgb(198, 220, 240);
+  font-size: 2.2em;
+}
+
+h2 {
+  color: rgb(158, 179, 196);
+}
+
+.aside {
+  display: block;
+  margin: auto;
+  width: 75%;
+
+  text-align: center;
+  opacity: 75%;
+}
+
+#globe {
+  font-size: 16px;
+}
+
+.text {
+  position: relative;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 30px;
+}
+
+/* RESPONSIVE SECTION */
+.section-parent{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.section-child{
+  padding-left: 30px;
+  padding-right: 30px;
+  flex-basis: 70%;
+}
+
+/* mobile */
+@media only screen and (max-width: 1000px){
+  .section-parent{
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 1000px){
+  .section-parent{
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  #eureka {
+    flex-basis: 20%;
+  }
+  #treasure-chest {
+    flex-basis: 80%;
+  }
+  #jacks-advice {
+    flex-basis: 40%;
+  }
+  #a-handy-map {
+    flex-basis: 60%;
+  }
+}
+
+header {
+  display: flex;
+  margin: 0px;
+  width: 100%;
+}
+
+marquee {
+  border-bottom: 1.5px dotted silver;
+  margin: 0px;
+  padding: 10px;
+  line-height: 25px;
+  text-align: center;
+}
+
+#nav-bar {
+  padding: 30px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  white-space: wrap;
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  border: 1x solid transparent;
+  color: rgb(187, 9, 223);
+  font-size: 1.5em;
+  padding: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  line-height: 20px;
+  text-align: center;
+  image-rendering: pixelated;
+  border-image-source: url("border.png");
+  border-image-slice: 3;
+  border-image-width: 7px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+
+  transition: box-shadow 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+
+#home-icon {
+  display: inline-block;
+  height: 45.5px;
+  border: 1.5px dotted silver;
+}
+
+#translate-button {
+  border: 1px solid transparent;
+  image-rendering: pixelated;
+  border-image-source: url("border.png");
+  border-image-slice: 3;
+  border-image-width: 7px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+
+  background-color: transparent;
+  float: right;
+  white-space: nowrap;
+  font-family: proggy-clean;
+  color: inherit;
+  font-size: 22px;
+  line-height: 25px;
+  text-align: center;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  transition: box-shadow 0.5s ease-in-out, text-shadow 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+#translate-button:hover,
+.nav-button:hover,
+input[type="submit"]:hover,
+#promise:hover,
+#home-icon:hover {
+  opacity: 75%;
+  cursor: pointer;
+}
+
+#translate-button:hover {
+  text-shadow: 0 0 3px white;
+}
+
+.nav-button:hover,
+input[type="submit"]:hover {
+  text-shadow: 0 0 3px rgb(187, 9, 223);
+}
+
+#translate-button:active,
+.nav-button:active,
+input[type="submit"]:active,
+#home-icon:active {
+  opacity: 60%;
+  filter: blur(1px);
+}
+
+.log-entry {
+  float: center;
+  padding: 10px;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-container {
+  display: flex;
+  float: left;
+  /* border: 1px solid white; */
+  height: 40%;
+  width: 50%;
+  overflow: hidden;
+  justify-content: center;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  margin: auto;
+}
+
+.tableImage:hover {
+  opacity: 60%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.description-container {
+  float: left;
+  display: flex;
+  padding: 10px;
+  position: relative;
+  height: 40%;
+  width: 40%;
+  line-height: 25px;
+  margin-left: 20px;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  margin: auto;
+  padding: 5px;
+}
+
+select {
+  width: 60%;
+}
+
+.filter-container {
+  font-family: inherit;
+  font-size: inherit;
+  
+  display: flex;
+  flex-direction: column;
+
+  height: 10%;
+  padding: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  line-height: 30px;
+  border-bottom: 1.5px dotted silver;
+
+  justify-content: center;
+  margin: auto;
+}
+
+.filter {
+  height: 40px;
+  width: 60%;
+  background-color: aliceblue;
+}
+
+.input-container {
+  border: 1.5px solid silver;
+  margin: auto;
+  width: 100%;
+}
+
+.input-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  line-height: 30px;
+  border-bottom: 1.5px dotted silver;
+}
+
+.last-input-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-bottom: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.submit-item {
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  justify-content: center;
+  white-space: wrap;
+  text-wrap: wrap;
+  flex-wrap: wrap;
+  line-height: 20px;
+}
+
+label {
+  font-size: 1.1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  height: 30px;
+  width: 50%;
+  background-color: aliceblue;
+}
+
+input[type="file"]::file-selector-button {
+  font-family: inherit;
+  background-color: transparent;
+  background-color: aliceblue;
+}
+
+input[type="submit"] {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: rgb(187, 9, 223);
+  font-size: 1.5em;
+  padding: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  line-height: 20px;
+  text-align: center;
+  image-rendering: pixelated;
+  border-image-source: url("border.png");
+  border-image-slice: 3;
+  border-image-width: 7px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  cursor: pointer;
+
+  text-wrap: wrap;
+  text-decoration: underline;
+  
+  transition: box-shadow 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+
+table {
+  font-size: 1.01em;
+  border: 1.5px solid silver;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  display: table-cell;
+  border: 1.5px dotted silver;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.table-image-container {
+  width: 25%;
+  text-align: center;
+  padding: 0px;
+}
+
+.tableImage {
+  display: block;
+  margin: auto;
+}
+
+.landscape-container {
+  display: block;
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+  overflow: hidden;
+  margin: auto;
+}
+
+
+/* SLIDESHOW STUFF */
+/* thanks to this https://www.w3schools.com/howto/howto_js_slideshow.asp */
+.mySlides {
+  box-sizing: border-box;
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+
+  height: 100%;
+  width: 100%;
+
+  object-fit: contain;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  color: silver;
+  font-weight: bold;
+  font-size: 40px;
+  user-select: none;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.6s ease;
+  z-index: 10;
+}
+
+.prev {
+  left: 10%;
+}
+
+.next {
+  right: 10%;
+}
+
+.prev:hover,
+.prev:focus {
+  opacity: 60%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.next:hover,
+.next:focus {
+  opacity: 60%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalImg {
+  display: block;
+  margin: 0px auto 10px auto;
+  max-width: 70%;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.modalCaption {
+  color: silver;
+  font-size: 1.1em;
+  color: inherit;
+  text-align: center;
+  margin: 0px 20%;
+  padding: 0px;
+}
+
+/* modal stuff */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: none;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  border: 1px solid transparent;
+  image-rendering: pixelated;
+  border-image-source: url("border.png");
+  border-image-slice: 3;
+  border-image-width: 7px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+
+  justify-content: center;
+
+  position: relative;
+  background-color: transparent;
+  margin: 5% auto;
+  width: 50%;
+  height: 80%;
+
+  overflow: hidden;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+  color: silver;
+
+  z-index: 10;
+  user-select: none;
+  cursor: pointer;
+  margin: 30px;
+
+  transition: 0.6s ease;
+}
+
+.close:hover,
+.close:focus {
+  opacity: 60%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.map-container {
+  display: block;
+  margin: auto;
+  object-fit: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-text {
+  position: absolute;
+  text-align: left;
+  opacity: 50%;
+}
+
+.map-text:hover {
+  opacity: 100%;
+  transition: 0.6s ease;
+}
+
+.palisades{
+  color: #f4cccc;
+  font-size: 1.1em;
+  top: 5%;
+  left: 48%;
+}
+
+.lush-forest{
+  color: #fff2cc;
+  font-size: 1.3em;
+  top: 65%;
+  left: 24%;
+}
+
+.town{
+  color: #f6f3ff;
+  font-size: 1em;
+  top: 17%;
+  left: 52%;
+}
+
+.flood-field{
+  color: #fce5cd;
+  font-size: 1.1em;
+  top: 21%;
+  left: 65%;
+}
+
+.ice-floes{
+  color: #eeeeee;
+  font-size: 1.2em;
+  top: 40%;
+  left: 50%;
+}
+
+.north-sea{
+  color: #cfe2f3;
+  font-size: 1.1em;
+  top: 60%;
+  left: 60%;
+}
