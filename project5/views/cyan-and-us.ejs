@@ -1,0 +1,191 @@
+<html>
+  <head>
+    <%- include('static.ejs') %>
+    <link rel="icon" href="fav.ico" />
+    <title>⁂ Cyan and us ~ CCCC</title>
+  </head>
+  <body>
+    <%- include('nav.ejs') %>
+    <div class="text">
+      <!-- regular stuff -->
+      <section class="section-parent">
+        <section class="section-child">
+          <h1>⁂ CYAN AND US</h1>
+          <h2>CCCC, THAT'S US</h2>
+          <p>
+            The Cyan Cleanup and Collection Club (CCCC) is a small grassroots
+            organization that collects and documents litter found on Planet
+            Cyan, a jewel in the Chromeda system loved by locals and travelers
+            alike, located approximately 7.2 light-years* away.
+          </p>
+          <p>
+            *An archaic unit for the distance that light travels during one full
+            rotation of Earth (the last centralized planet occupied by humans)
+            around its star. Approximately 5.879e12 ens.
+          </p>
+          <br />
+          <h2>OUR PLANET, CYAN</h2>
+          <p>Behold the following picture log.</p>
+
+          <table>
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/planet.png"
+                  title="A lovely blue planet set in a violet sky. A splash of pink to the left, and a cream-colored blob to the right…"
+                  data-caption="That blue jewel is Cyan. The yellow to the right is one of its
+                  many moons—seems like the orbit was too fast for my shutter..."
+                />
+              </td>
+              <td>
+                That blue jewel is Cyan. The yellow to the right is one of its
+                many moons—seems like the orbit was too fast for my shutter...
+              </td>
+            </tr>
+
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/forest.png"
+                  title="Jungle of the south side, with caramel and turquoise drips. Reminiscent of watercolor, really…oh, perhaps I’m laying it on too thick…"
+                  data-caption="The lush forest, rich with the treasure left behind by
+                  travelers."
+                />
+              </td>
+              <td>
+                The lush forest, rich with the treasure left behind by
+                travelers.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/flowers.png"
+                  title="Three vermillion blooms with fleshy violet stems, a sweet thing."
+                  data-caption="The most common vegetative species on Cyan. Their translucent
+                  flowers form lovely shadows on the ash."
+                />
+              </td>
+              <td>
+                The most common vegetative species on Cyan. Their translucent
+                flowers form lovely shadows on the ash.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/flowers2.png"
+                  title="A field filled by the aforementioned flower, softened by my shutter."
+                  data-caption="Like so."
+                />
+              </td>
+              <td>Like so.</td>
+            </tr>
+
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/flowers3.png"
+                  title="A caterpillar-like species (vegetative?) set against a blue that could rival the skies of our origin planet…"
+                  data-caption="I believe this is the second-most common type, although it
+                  really could be some kind of mammal as well...*"
+                />
+              </td>
+              <td>
+                I believe this is the second-most common type, although it
+                really could be some kind of mammal as well...*
+              </td>
+            </tr>
+
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/cube.png"
+                  title="A painfully orange cube."
+                  data-caption="In the last 10 novas, corporations have begun renting out plots
+                  of land to be used as temporary manufacturing branches. Here is
+                  one of them."
+                />
+              </td>
+              <td>
+                In the last 10 novas, corporations have begun renting out plots
+                of land to be used as temporary manufacturing branches. Here is
+                one of them.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/cube2.png"
+                  title="That same cube in yellow and purple. Clashing colors."
+                  data-caption="Another angle.*"
+                />
+              </td>
+              <td>Another angle.*</td>
+            </tr>
+
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/obelisk.png"
+                  title="Mysterious indigo spire."
+                  data-caption="This has been here as long as I can remember."
+                />
+              </td>
+              <td>This has been here as long as I can remember.</td>
+            </tr>
+
+            <tr>
+              <td class="table-image-container">
+                <img
+                  class="tableImage"
+                  src="/pictures/surface.png"
+                  title="Lovely shot of Cyan’s horizon, one of its moons visible in the distance…"
+                  data-caption="At night, Cyan projects a soft light into space. It's very quiet
+                  here, very blue..."
+                />
+              </td>
+              <td>
+                At night, Cyan projects a soft light into space. It's very quiet
+                here, very blue...
+              </td>
+            </tr>
+          </table>
+          <br />
+          <small class="aside">
+            * Excuse the poor image quality. My camera is an old model and
+            unfortunately my health has made it difficult to travel back these
+            days.
+          </small>
+          <small class="aside"> Enjoy —Jack </small>
+          <br />
+        </section>
+      </section>
+
+      <!-- modal -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <div class="mySlides">
+            <img id="modalImg" class="modalImg"/>
+            <div id="modalCaption" class="modalCaption"></div>
+          </div>
+        </div>
+
+        <span class="close">&times;</span>
+        <span class="prev">⤎</span>
+        <span class="next">⤏</span>
+      </div>
+    </div>
+  </body>
+</html>

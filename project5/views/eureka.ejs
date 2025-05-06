@@ -1,0 +1,205 @@
+<html>
+  <head>
+    <%- include('static.ejs') %>
+    <link rel="icon" href="fav.ico" />
+    <title>✧ Eureka! ~ CCCC</title>
+  </head>
+  <body>
+    <%- include('nav.ejs') %>
+    <div class="text">
+      <section class="section-parent">
+        <section class="section-child" id="eureka">
+           <h1>✧ EUREKA!</h1>
+          <h2>I FOUND TREASURE!</h2>
+          <p>Splendid. Please complete the following questionaire.</p>
+          <div class="input-container">
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+              <%# alias %>
+              <div class="input-item">
+                <label for="alias">Your alias:</label>
+                <input
+                  type="text"
+                  id="alias"
+                  name="alias"
+                  placeholder="Collector Jack"
+                />
+              </div>
+
+              <%# tag %>
+              <div class="input-item">
+                <label for="tag"
+                  >Please tag your item<br />(CTRL/CMD + click for multiple
+                  selections):</label
+                >
+                <select id="tag" name="tag" multiple>
+                  <option value="" disabled selected>Select...</option>
+                  <option value="Adjustable">Adjustable</option>
+                  <option value="Architectural">Architectural</option>
+                  <option value="Automaton">Automaton</option>
+                  <option value="Clothing">Clothing</option>
+                  <option value="Consumable">Consumable</option>
+                  <option value="Container">Container</option>
+                  <option value="Currency">Currency</option>
+                  <option value="Fluid">Fluid</option>
+                  <option value="Heirloom">Heirloom</option>
+                  <option value="Identification">Identification</option>
+                  <option value="Leisure">Leisure</option>
+                  <option value="Modular">Modular</option>
+                  <option value="Perishable (Non-consumable)">
+                    Perishable (Non-consumable)
+                  </option>
+                  <option value="Potential for change">
+                    Potential for change
+                  </option>
+                  <option value="Potential for magic">
+                    Potential for magic
+                  </option>
+                  <option value="Potential for violence">
+                    Potential for violence (These must be discarded immediately
+                    after documentation.)
+                  </option>
+                  <option value="Prayer or ritual">Prayer or ritual</option>
+                  <option value="Rare">Rare</option>
+                  <option value="Sport">Sport</option>
+                  <option value="Travel (Aplanetary)">
+                    Travel (Aplanetary)
+                  </option>
+                  <option value="Travel (Interplanetary)">
+                    Travel (Interplanetary)
+                  </option>
+                </select>
+              </div>
+
+              <%# description %>
+              <div class="input-item">
+                <label for="description">Further describe the item:</label>
+                <input
+                  type="text"
+                  id="description"
+                  name="description"
+                  placeholder="Like a marble, glows in dark..."
+                />
+              </div>
+
+              <%# location %>
+              <div class="input-item">
+                <label for="location">Where found? Please be poetic.</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="Underwater, at wit's end, airborne..."
+                />
+              </div>
+
+              <%# image %>
+              <div class="last-input-item">
+                <label for="image">Please upload an image of your find.</label>
+                <input type="file" id="image" name="image" />
+              </div>
+
+              <div class="submit-item">
+                <input
+                  type="submit"
+                  name="sbtn"
+                  value="Display for all to see"
+                />
+              </div>
+            </form>
+          </div>
+          <br />
+          <br />
+          <h2>TREASURE THE CHEST</h2>
+          <p>
+            This is a sacred space for Collector treasures, run by Good Samovars
+            and maintained by the honor system. In other words, please do not
+            post anything you wouldn’t want your birth mother to see:
+          </p>
+          <ul>
+            <li>
+              Nothing NSFW (Not Safe For World). In this one, that means nothing
+              crude, grotesque, violent, or hateful
+            </li>
+            <li>No -isms. This is a safe space for all, including you.</li>
+            <li>No spamming, scamming, or shamming</li>
+            <li>No personal information or impersonation, please</li>
+            <li>Please, nothing unfashionable</li>
+          </ul>
+          <p>This is not an extensive list. Be wise. Have fun.</p>
+          <small class="aside"
+            >* As a little-known aside, I’ll have you know that Jack has an
+            affinity for Usonian architecture.</small
+          >
+        </section>
+
+        <section class="section-child" id="treasure-chest">
+          <h1>✧ TREASURE CHEST</h1>
+          <p>
+            A collection of treasures found by our Collectors, ordered by
+            recency.
+          </p>
+
+          <%# filter by tags %>
+          <form method="GET" action="/eureka">
+            <div id="filter-container">
+                <label for="filter">Filter by tag:</label>
+            <select name="filter" id="filter" onchange="this.form.submit()">
+              <option value="">✧✧ All tags ✧✧</option>
+              <option value="Adjustable" <%= selectedTag === 'Adjustable' ? 'selected' : '' %>>Adjustable</option>
+              <option value="Architectural" <%= selectedTag === 'Architectural' ? 'selected' : '' %>>Architectural</option>
+              <option value="Automaton" <%= selectedTag === 'Automaton' ? 'selected' : '' %>>Automaton</option>
+              <option value="Clothing" <%= selectedTag === 'Clothing' ? 'selected' : '' %>>Clothing</option>
+              <option value="Consumable" <%= selectedTag === 'Consumable' ? 'selected' : '' %>>Consumable</option>
+              <option value="Container" <%= selectedTag === 'Container' ? 'selected' : '' %>>Container</option>
+              <option value="Currency" <%= selectedTag === 'Currency' ? 'selected' : '' %>>Currency</option>
+              <option value="Fluid" <%= selectedTag === 'Fluid' ? 'selected' : '' %>>Fluid</option>
+              <option value="Heirloom" <%= selectedTag === 'Heirloom' ? 'selected' : '' %>>Heirloom</option>
+              <option value="Identification" <%= selectedTag === 'Identification' ? 'selected' : '' %>>Identification</option>
+              <option value="Leisure" <%= selectedTag === 'Leisure' ? 'selected' : '' %>>Leisure</option>
+              <option value="Modular" <%= selectedTag === 'Modular' ? 'selected' : '' %>>Modular</option>
+              <option value="Perishable (Non-consumable)" <%= selectedTag === 'Perishable (Non-consumable)' ? 'selected' : '' %>>Perishable (Non-consumable)</option>
+              <option value="Potential for change" <%= selectedTag === 'Potential for change' ? 'selected' : '' %>>Potential for change</option>
+              <option value="Potential for magic" <%= selectedTag === 'Potential for magic' ? 'selected' : '' %>>Potential for magic</option>
+              <option value="Potential for violence" <%= selectedTag === 'Potential for violence' ? 'selected' : '' %>>Potential for violence</option>
+              <option value="Prayer or ritual" <%= selectedTag === 'Prayer or ritual' ? 'selected' : '' %>>Prayer or ritual</option>
+              <option value="Rare" <%= selectedTag === 'Rare' ? 'selected' : '' %>>Rare</option>
+              <option value="Sport" <%= selectedTag === 'Sport' ? 'selected' : '' %>>Sport</option>
+              <option value="Travel (Aplanetary)" <%= selectedTag === 'Travel (Aplanetary)' ? 'selected' : '' %>>Travel (Aplanetary)</option>
+              <option value="Travel (Interplanetary)" <%= selectedTag === 'Travel (Interplanetary)' ? 'selected' : '' %>>Travel (Interplanetary)</option>
+            </select>
+            </div>
+          </form>
+
+          <table>
+            <tr>
+              <th>Found by</th>
+              <th>On</th>
+              <th>Where</th>
+              <th>Could be</th>
+              <th>Details</th>
+              <th>Picture</th>
+            </tr>
+
+            <% allPosts.forEach((post)=>{ %>
+              <tr class="post-item">
+                <td class="alias"><%= post.alias %></td>
+                <td class="date"><%= post.date %></td>
+                <td class="location"><%= post.location %></td>
+                <%# changed this part so that if tags are array, they still look same as before like tag1, tag2, tag3 %>
+                <td class="tag">
+                    <%= Array.isArray(post.tag) ? post.tag.join(', ') : post.tag %>
+                </td>
+                <td class="description"><%= post.description %></td>
+                <td class="table-image">
+                  <% if(post.imgURL) { %>
+                  <img class="table-image" src="<%= post.imgURL %>" />
+                  <% } %>
+                </td>
+              </tr>
+            <% } ) %>
+          </table>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
